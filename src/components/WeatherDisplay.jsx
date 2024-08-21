@@ -1,14 +1,16 @@
 import { useGetWeatherByCityQuery } from "../redux/weatherApi";
 
 const WeatherDisplay = ({ city }) => {
-    const { data, isLoading, error } = useGetWeatherByCityQuery(city, { skip: !city || city === '' })
+    const da = useGetWeatherByCityQuery(city, { skip: !city || city === '' })
+    console.log('da', da)
+    const { data, isLoading, error } = da
 
     if (isLoading) {
         return <p>Loading...</p>;
     }
 
     if (error) {
-        return <p>{error.message}</p>;
+        return <p>Something went wrong</p>;
     }
 
     if (!data) {
